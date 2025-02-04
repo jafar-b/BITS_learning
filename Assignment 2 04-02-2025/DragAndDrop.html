@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag N Drop </title>
+    <style>  
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .list-group {
+            list-style: none;
+            padding: 0;
+            width: 250px;
+        }
+        .list-group li {
+            padding: 10px;
+            background: rgb(179, 163, 163);
+            margin: 5px 0;
+            cursor: grab;
+            text-align: center;
+            /* border: 1px solid red; */
+        }
+        .dragging {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+    <h1>DRAG N DROP</h1>
+    <ul class="list-group">
+        <li draggable="true">abcd</li>
+        <li draggable="true">1234</li>
+        <li draggable="true">qwerty</li>
+    </ul>
+</div>
+
+<script>
+    const list = document.querySelector(".list-group");
+
+    list.addEventListener("dragstart", e => {
+        if (e.target.tagName === "LI") {
+            e.target.classList.add("dragging");
+        }
+    });
+
+    list.addEventListener("dragend", e => {
+        e.target.classList.remove("dragging");
+    });
+
+    list.addEventListener("dragover", e => {
+        e.preventDefault();
+        const dragging = document.querySelector(".dragging");
+        const afterElement = [...list.children].find(li => e.clientY < li.offsetTop + li.offsetHeight / 2); 
+         //e.clientY gives vertical (y-axis) cordinate of mouse
+        
+         afterElement ? list.insertBefore(dragging, afterElement) : list.appendChild(dragging); //list.insertBefore inserts the listitem before the next item(node) in DOM
+    });
+</script>
+
+</body>
+</html>
