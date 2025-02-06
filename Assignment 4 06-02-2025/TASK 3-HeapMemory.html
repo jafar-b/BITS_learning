@@ -1,0 +1,39 @@
+<!-- 
+TASK 3:
+Create a program that continuously adds data to an array to simulate a memory leak.
+Monitor heap memory usage using Chrome DevTools or performance.memory.
+Implement a cleanup mechanism to prevent memory issues.
+Use Chrome DevTools to capture a memory snapshot and analyze retained objects to observe the simulated memory leak
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="addData()">Add Data</button>
+  </body>
+
+  <script>let memoryLeakArray = [];
+
+    function simulateMemoryLeak() {
+      setInterval(() => {
+        memoryLeakArray.push(new Array(1000000).fill(0)); // Keep adding data
+        console.log("Memory growing:", memoryLeakArray.length);
+      }, 1000);
+    }
+    
+    function cleanupMemory() {
+      memoryLeakArray = []; 
+      console.log("Memory cleaned up!");
+    }
+    
+    simulateMemoryLeak(); 
+    setTimeout(cleanupMemory, 10000); //Clean after 10 sec
+    
+
+  </script>
+</html>
+ 
