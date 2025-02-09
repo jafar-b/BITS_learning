@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Cart Management</title>
+    <link rel="stylesheet" href="./css/CartOperations.css">
+</head>
+<body>
+
+    <iframe src="Navbar.html" width="100%" height="80px"></iframe>
+
+    <h2>Admin Cart Management</h2>
+
+    <form id="fetch-cart-form">
+        <h3>Get Cart by User ID</h3>
+        <input type="text" id="userId" name="userId" placeholder="Enter User ID" required>
+        <button type="submit" >Fetch Cart</button>
+        
+    </form>
+
+    <form id="add-update-form">
+        <h3 id="user-info"></h3>
+        <input type="text" id="productId" name="productId" placeholder="Product ID" required>
+        <input type="number" id="quantity" name="quantity" placeholder="Quantity" min="1" required>
+        <button type="submit">Add/Update Item</button>
+        <span id="response-message"></span>
+    </form>
+
+    <form id="delete-form">
+        <h3>Delete whole Cart </h3>
+        <input type="text" id="deleteCartId" name="deleteCartId" placeholder="Cart ID" required>
+        <button type="submit">Delete Item</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="../Controller/CartOperations.js"></script>
+
+</body>
+</html>

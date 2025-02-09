@@ -14,9 +14,11 @@
         </div>
 
         <ul class="nav-links">
-            <li><a href="Dashboard.html">Home</a></li>
-            <li><a href="#">Cart 🛒</a></li>
-            <li><a href="#">Logout 👤</a></li>
+            <li><a href="Dashboard.html" target="_top">Home</a></li>
+            <li><a href="Cart.html" target="_top">Cart 🛒</a></li>
+            <li><a href="CartOperations.html" target="_top">Cart Operations </a></li>
+            <li><a href="userOperations.html" target="_top">User CRUD</a></li>
+            <li><a onclick="logOut()">Logout 👤</a></li>
         </ul>
 
         <button class="menu-toggle">☰</button>
@@ -30,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle("active");
     });
 });
+
+function logOut(){
+    localStorage.clear();
+    window.top.location.href="Login.html"
+}
 
 
 </script>
