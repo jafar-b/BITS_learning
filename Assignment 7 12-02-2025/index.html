@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#question {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#choices button {
+    background-color: #007bff;
+    color: white;
+}
+
+#choices button:hover {
+    background-color: #0056b3;
+}
+
+#next {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+}
+
+#next:hover {
+    background-color: #218838;
+}
+
+#score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+    </style>
+    <title>Quiz App</title>
+</head>
+<body>
+    <h1>Quiz App</h1>
+    <p id="question"></p>
+    <div id="choices"></div>
+    <button id="next">Next Question</button>
+    <p id="score"></p>
+
+    <script src="QuizApp.js"></script>
+</body>
+</html>
