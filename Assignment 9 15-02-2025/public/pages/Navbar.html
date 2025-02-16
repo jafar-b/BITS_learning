@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Navbar</title>
+    <link rel="stylesheet" href="/src/styles/Navbar.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <h2>Welcome to Jafar's Ecommerce Website</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="Dashboard.html" target="_top">Home</a></li>
+            <li><a href="Cart.html" target="_top">Cart 🛒</a></li>
+            <li><a href="CartOperations.html" target="_top">Cart Operations </a></li>
+            <li><a href="userOperations.html" target="_top">User CRUD</a></li>
+            <li><a onclick="logOut()">Logout 👤</a></li>
+        </ul>
+
+        <button class="menu-toggle">☰</button>
+    </nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+});
+
+function logOut(){
+    localStorage.clear();
+    window.top.location.href="Login.html"
+}
+
+
+</script>
+</body>
+</html>

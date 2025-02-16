@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/src/styles/Login.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script type="module" src="/src/LoginController.ts" defer></script>
+
+  </head>
+  <body> 
+    <form id="form">
+      <div class="login-container"> 
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit" id="submit">Login</button>
+        <p id="message"></p>
+      </div>
+    </form> 
+   
+  </body>
+</html>
