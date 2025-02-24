@@ -1,6 +1,6 @@
 
-import { User } from "../models/User";
 import axios from "axios";
+import { Product } from "../models/Product";
 
 const BASE_URL = "https://fakestoreapi.com";
 
@@ -66,6 +66,60 @@ export async function fetchCart(id:number){
   }
 }
 
+export async  function updateCart(id:number,productId:number,quantity:number){
+  try {
+    const res = await axiosInstance.patch(`/carts/${id}`,{
+      productId,
+      quantity
+    });
+    return res.data;
+  } catch (e) {
+    console.log("problem in Api: ",e);
+    return null;
+  }
+}
 
+
+export async function getInCategory(category:string){
+  try {
+    const res = await axiosInstance.get(`/products/category/${category}`);
+    return res.data;
+  } catch (e) {
+    console.log("problem in Api: ",e);
+    return null;
+  }
+}
+
+
+
+export async function addProduct(product:Product){
+try{
+  const res = await axiosInstance.post("/products",product);
+  return res.data;
+}  catch (e) {  
+  console.log("problem in Api: ",e);
+  return null;
+}
+}
+
+export async function editProduct(product:Product){
+  try{
+    const res = await axiosInstance.patch(`/products/${product.id}`,product);
+    return res.data;
+  }  catch (e) {  
+    console.log("problem in Api: ",e);
+    return e;
+  }
+  }
+
+  export async function deleteProduct(id:number){
+    try{
+      const res = await axiosInstance.delete(`/products/${id}`);   
+      return res.data;
+    }  catch (e) {  
+      console.log("problem in Api: ",e);
+      return null;
+    }
+    }
 
 

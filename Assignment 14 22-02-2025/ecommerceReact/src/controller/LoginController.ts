@@ -5,7 +5,7 @@ export async function checkLogin(user: User) {
   if (res) {
 const found=res.find((u:User)=>u.username===user.username && u.password===user.password)
 if(found){ 
-  console.log("from loginController.tsx, login user is: ",found);
+  console.log("Login user is: ",found);
     return true;
   } else {
     return false;

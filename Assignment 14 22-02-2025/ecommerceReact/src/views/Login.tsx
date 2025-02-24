@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { checkLogin } from '../controller/LoginController';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+
 const Login = () => {
+  const {state,dispatch}=useContext(AuthContext);
+
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [login,setLogin]=useState<boolean>();
+  const [loginAttempted, setLoginAttempted] = useState<boolean>(false);
+
   const navigate=useNavigate();
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(!username || !password) return;
 
 const user = {
       username: username,
@@ -18,11 +24,14 @@ const user = {
 const res = await checkLogin(user);
 if(res){
   console.log("Login successful");
-setLogin(true);
+  if(username==="snyder")dispatch({type:"LOGIN",payload:{username:username,isAdmin:true}});     //SNYDER is ADMIN, password for snyder is: f238&@*$  `
+  else{
+    dispatch({type:"LOGIN",payload:{username:username,isAdmin:false}});
+  }
 navigate("/");
 }
 else{
-  setLogin(false);
+  setLoginAttempted(true);
   console.log("Login failed");
 }
 
@@ -70,7 +79,7 @@ else{
           Login
         </Button>
       </Box>
-      {login===false && (<Typography variant="h6" sx={{ mt: 2 }}>Login Failed</Typography>)}
+      {loginAttempted && ( !state.isAuthenticated ? (<Typography variant="h6" sx={{ mt: 2 }}>Login Failed</Typography>):(<Typography variant="h6" sx={{ mt: 2 }}>Login Successfull</Typography>))}
     </Box>
   );
 };

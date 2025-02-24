@@ -1,12 +1,11 @@
 export interface Product{
-    productId: number;
-    quantity: number;
-
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
+    productId: number|null;
+    quantity: number|null;
+    id: number|null;
+    title: string|null;
+    price: number|null;
+    description: string|null;
+    category: string|null;
+    image: string|null;
 
 }
