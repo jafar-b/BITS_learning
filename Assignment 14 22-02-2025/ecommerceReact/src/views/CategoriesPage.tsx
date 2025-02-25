@@ -12,7 +12,7 @@ const CategoriesPage = () => {
 const {state}=useContext(CategoryContext);
 
 const {data,error,isLoading}=useQuery({queryKey:['products'],queryFn:fetchProducts});
-console.log(data);
+
 
 const products:Product[]=data || [];
 

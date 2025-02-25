@@ -12,17 +12,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import Navbar from "../components/Navbar";
-
-export interface Product {
-  productId: number | null;
-  quantity: number | null;
-  id: number | null;
-  title: string | null;
-  price: number | null;
-  description: string | null;
-  category: string | null;
-  image: string | null;
-}
+import { Product } from "../models/Product";
 
 const ProductCrud = () => {
   const [operation, setOperation] = useState("");
@@ -35,6 +25,10 @@ const ProductCrud = () => {
     category: "",
     quantity: null,
     id: null,
+    rating:{
+      rate:null,
+      count:null
+    }
   });
 
   const handleOperationChange = (e: SelectChangeEvent<string>) => {
@@ -48,7 +42,10 @@ const ProductCrud = () => {
       image: "",
       category: "",
       quantity: null,
-      id: null,
+      id: null, rating:{
+        rate:null,
+        count:null
+      }
     });
   };
 

@@ -122,4 +122,13 @@ export async function editProduct(product:Product){
     }
     }
 
+    export async function fetchProduct(id:number){
+      try{
+        const res = await axiosInstance.get(`/products/${id}`);   
+        return res.data;
+      }catch(e){console.log("Problem in Api",e);
+        return e;
+      }
+    }
+
 

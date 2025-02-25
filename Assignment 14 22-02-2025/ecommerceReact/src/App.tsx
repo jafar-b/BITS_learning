@@ -12,6 +12,7 @@ import { CartProvider } from "./context/CartContext";
 import CategoriesPage from "./views/CategoriesPage";
 import { CategoryProvider } from "./context/CategoryContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ProductDetails from "./views/ProductDetails";
 
 function App() {
   const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/productscrud" element={<ProductsCrud />} />
                   </Route>
                   <Route path="/categories" element={<CategoriesPage />} />
+                  <Route path="/productdetails/:id" element={<ProductDetails/>} />
                   <Route path="*" element={<h1>404 Not Found</h1>} />
                 </Routes>
               </Router>
