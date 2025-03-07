@@ -224,9 +224,9 @@ const CompanyManagement: React.FC = () => {
                 </span>
               }
             >
-              <div style={{ color: darkMode ? "#fff" : "#000" }}>
+              <div>
                 <p>
-                  <b>Name:</b>{" "}
+                  <b style={{ color: "black"}}>Name:</b>{" "}
                   {isEditing ? (
                     <Input
                       value={editedCompany?.name}
